@@ -1,0 +1,66 @@
+<html>
+	<head>
+		<title>Calcy Boi</title>
+	</head>
+	<body>
+		<form name="calculator" id="timer">
+			<input type="number" name="lhs" id="lhs">
+			<select id="op">
+				<option value="+">+</option>
+				<option value="-">-</option>
+				<option value="*">*</option>
+				<option value="/">/</option>
+				<option value="%">%</option>
+			</select>
+			<input type="number" name="rhs" id="rhs">
+			<button type="button" id="calc">Try me!</button>
+		</form>
+		<script>
+			window.onload = function() {
+				document.getElementById("calc").addEventListener("click", submit);
+				setInterval(timer, 30000);
+			}
+			function timer() {
+				alert("Please, use me...");
+			}
+			function submit() {
+				var ans = 0;
+				var lhs = parseFloat(document.getElementById("lhs").value);
+				var op = document.getElementById('op').value;
+				var rhs = parseFloat(document.getElementById('rhs').value);
+				if (lhs < 0 || rhs < 0) {
+					alert("Error :(");
+				}
+				else {
+					if (op == "+") {
+						ans = lhs + rhs;
+					}
+					else if (op == "-") {
+						ans = lhs - rhs;
+					}
+					else if (op == "*") {
+						ans = lhs * rhs;
+					}
+					else if (op == "/") {
+						if (rhs == 0) {
+							alert("It's over 9000");
+							console.log("It's over 9000");
+							return ;
+						}
+						ans = lhs / rhs;
+					}
+					else if (op == "%") {
+						if (rhs == 0) {
+							alert("It's over 9000");
+							console.log("It's over 9000");
+							return ;
+						}
+						ans = lhs % rhs;
+					}
+					alert(ans);
+					console.log(ans);
+				}
+			}
+		</script>
+	</body>
+</html>

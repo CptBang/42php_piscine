@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<title>Balloon</title>
+		<style>
+			#balloon {
+				height: 200px;
+				width: 200px;
+				background-color: red;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="balloon"></div>
+		<script>
+			var balloon = document.getElementById('balloon');
+			balloon.style.backgroundColor = "red";
+			window.onload = function() {
+				balloon.addEventListener("click", click);
+				balloon.addEventListener("mouseleave", leave);
+			}
+			function click() {
+				var currWidth = balloon.offsetWidth;
+				var currHeight = balloon.offsetHeight;
+				console.log(balloon.style.backgroundColor);
+				if (balloon.style.backgroundColor == "red")
+					balloon.style.backgroundColor = "green";
+				else if (balloon.style.backgroundColor == "green")
+					balloon.style.backgroundColor = "blue";
+				else if (balloon.style.backgroundColor == "blue")
+					balloon.style.backgroundColor = "red";
+				balloon.style.width = (currWidth + 10) + "px";
+				balloon.style.height = (currHeight + 10) + "px";
+				if (currWidth > 420) {
+					balloon.style.width = 200 + "px";
+					balloon.style.height = 200 + "px";
+				}
+			}
+
+			function leave() {
+				var currWidth = balloon.offsetWidth;
+				var currHeight = balloon.offsetHeight;
+				console.log(balloon.style.backgroundColor);
+				if (balloon.style.backgroundColor == "red")
+					balloon.style.backgroundColor = "blue";
+				else if (balloon.style.backgroundColor == "blue")
+					balloon.style.backgroundColor = "green";
+				else if (balloon.style.backgroundColor == "green")
+					balloon.style.backgroundColor = "red";
+				if (currWidth > 200) {
+					balloon.style.width = (currWidth - 5) + "px";
+					balloon.style.height = (currHeight - 5) + "px";
+				}
+			}
+		</script>
+	</body>
+</html>

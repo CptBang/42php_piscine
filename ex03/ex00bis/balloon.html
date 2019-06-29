@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<title>Balloon bis</title>
+		<style>
+			#balloon {
+				height: 200px;
+				width: 200px;
+				background-color: red;
+				border-radius: 50%;
+			}
+		</style>
+		<script
+  			src="https://code.jquery.com/jquery-3.4.1.js"
+  			integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+			  crossorigin="anonymous"></script>
+		<script>
+			var i = 0;
+			var colors = ["red", "green", "blue"];
+			$(document).ready(function(){
+				$('#balloon').click(function(){
+					$(this).css({height: $(this).height() + 10 + "px"});
+					$(this).css({width: $(this).width() + 10 + "px"});
+					console.log($(this).height());
+					if ($(this).height() > 420) {
+						$(this).css({height: "200px"});
+						$(this).css({width: "200px"});
+					}
+					i++;
+					if (i < 3) {
+						$(this).css({backgroundColor: colors[i]});
+					}
+					else {
+						i = 0;
+						$(this).css({backgroundColor: colors[i]});
+					}
+				})
+				$('#balloon').mouseleave(function(){
+					$(this).css({height: $(this).height() - 5 + "px"});
+					$(this).css({width: $(this).width() - 5 + "px"});
+					console.log($(this).height());
+					if ($(this).height() < 200) {
+						$(this).css({height: "200px"});
+						$(this).css({width: "200px"});
+					}
+					i--;
+					if (i >= 0) {
+						$(this).css({backgroundColor: colors[i]});
+					}
+					else {
+						i = 2;
+						$(this).css({backgroundColor: colors[i]});
+					}
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<div id="balloon"></div>
+	</body>
+</html>

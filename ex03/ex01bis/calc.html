@@ -1,0 +1,74 @@
+<html>
+	<head>
+		<title>Calcy Boi</title>
+		<script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
+		<script>
+			$(document).ready(function(){
+				setInterval(timer, 30000);
+				$('#calc').click(function(){
+					submit();
+				});
+			});
+
+			function timer() {
+				alert("Please, use me...");
+			}
+
+			function submit() {
+				var ans = 0;
+				var lhs = parseFloat($('#lhs').val());
+				var op = $('#op').val();
+				var rhs = parseFloat($('#rhs').val());
+				if (lhs < 0 || rhs < 0) {
+					alert("Error :(");
+				}
+				else {
+					if (op == "+") {
+						ans = lhs + rhs;
+					}
+					else if (op == "-") {
+						ans = lhs - rhs;
+					}
+					else if (op == "*") {
+						ans = lhs * rhs;
+					}
+					else if (op == "/") {
+						if (rhs == 0) {
+							alert("It's over 9000");
+							console.log("It's over 9000");
+							return ;
+						}
+						ans = lhs / rhs;
+					}
+					else if (op == "%") {
+						if (rhs == 0) {
+							alert("It's over 9000");
+							console.log("It's over 9000");
+							return ;
+						}
+						ans = lhs % rhs;
+					}
+					alert(ans);
+					console.log(ans);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form name="calculator" id="timer">
+			<input type="number" name="lhs" id="lhs">
+			<select id="op">
+				<option value="+">+</option>
+				<option value="-">-</option>
+				<option value="*">*</option>
+				<option value="/">/</option>
+				<option value="%">%</option>
+			</select>
+			<input type="number" name="rhs" id="rhs">
+			<button type="button" id="calc">Try me!</button>
+		</form>
+	</body>
+</html>
